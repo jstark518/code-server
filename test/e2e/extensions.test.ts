@@ -7,7 +7,7 @@ function runTestExtensionTests() {
 
     await codeServerPage.executeCommandViaMenus("code-server: Get proxy URI")
 
-  // Click span:has-text("https://localhost:57989/proxy/{{port}}")
+    // Click span:has-text("https://localhost:57989/proxy/{{port}}")
     await codeServerPage.page.waitForSelector(`span:has-text("${address}/proxy/{{port}}")`)
   })
 }
