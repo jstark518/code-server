@@ -92,8 +92,6 @@ jobs:
     needs: prebuild
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    env:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -155,10 +153,6 @@ jobs:
       # TODO: Move to its own step?
       - name: Run code-server unit tests
         run: yarn test:unit
-        if: success()
-
-      - name: Upload coverage report to Codecov
-        run: yarn coverage
         if: success()
 
       # The release package does not contain any native modules
